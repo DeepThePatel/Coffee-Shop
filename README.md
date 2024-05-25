@@ -13,4 +13,6 @@ CoffeeShop.java showcases OOP concepts including:
 - Interfaces
 - Abstraction
 - Encapsulation
+- Method overriding
 - User Input
+- Conditional statements
