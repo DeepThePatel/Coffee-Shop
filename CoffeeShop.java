@@ -97,9 +97,9 @@ public class CoffeeShop {
         String drinkType = "";
         
         while (true) {
-            String drink = scanner.nextLine();
+            String drink = scanner.nextLine().trim();
 
-            if(drink.trim().equalsIgnoreCase("tea") || drink.trim().equalsIgnoreCase("coffee")) {
+            if(drink.equalsIgnoreCase("tea") || drink.equalsIgnoreCase("coffee")) {
                 drinkType = drink;
                 break;
             }
@@ -113,8 +113,8 @@ public class CoffeeShop {
             System.out.println("What size coffee would you like? Small, Medium, or Large?");
 
             while(true) {
-                String drinkSize = scanner.nextLine();
-                if (drinkSize.trim().equalsIgnoreCase("small") || drinkSize.trim().equalsIgnoreCase("medium") || drinkSize.trim().equalsIgnoreCase("large")) {
+                String drinkSize = scanner.nextLine().trim();
+                if (drinkSize.equalsIgnoreCase("small") || drinkSize.equalsIgnoreCase("medium") || drinkSize.trim().equalsIgnoreCase("large")) {
                    coffee.size = drinkSize; 
                    break;
                 }
@@ -126,13 +126,13 @@ public class CoffeeShop {
             System.out.println("Would you like milk? (Y/N)?");
 
             while(true) {
-                String isMilk = scanner.nextLine();
-                if (isMilk.trim().equalsIgnoreCase("y")) {
+                String isMilk = scanner.nextLine().trim();
+                if (isMilk.equalsIgnoreCase("y")) {
                     coffee.milk = true;
                     break;
                 }
                     
-                else if (isMilk.trim().equalsIgnoreCase("n")) {
+                else if (isMilk.equalsIgnoreCase("n")) {
                     coffee.milk = false;
                     break;
                 }
@@ -144,13 +144,13 @@ public class CoffeeShop {
             System.out.println("Would you like sugar? (Y/N)");
 
             while (true) {
-                String isSugar = scanner.nextLine();
-                if (isSugar.trim().equalsIgnoreCase("y")) {
+                String isSugar = scanner.nextLine().trim();
+                if (isSugar.equalsIgnoreCase("y")) {
                     coffee.sugar = true;
                     break;
                 }
                     
-                else if (isSugar.trim().equalsIgnoreCase("n")) {
+                else if (isSugar.equalsIgnoreCase("n")) {
                     coffee.sugar = false;
                     break;
                 }
@@ -161,13 +161,13 @@ public class CoffeeShop {
             System.out.println("Would you like it to be decaf? (Y/N)");
             
             while(true) {
-                String isDecaf = scanner.nextLine();
-                if(isDecaf.trim().equalsIgnoreCase("y")) {
+                String isDecaf = scanner.nextLine().trim();
+                if(isDecaf.equalsIgnoreCase("y")) {
                     coffee.setDecaf(true);
                     break;
                 }
                     
-                else if(isDecaf.trim().equalsIgnoreCase("n")) {
+                else if(isDecaf.equalsIgnoreCase("n")) {
                     coffee.setDecaf(false);
                     break;
                 }
@@ -182,7 +182,70 @@ public class CoffeeShop {
 
         //Tea
         else {
+            Tea tea = new Tea("", false, false, "");
 
+            System.out.println("What size tea would you like? Small, Medium, or Large?");
+
+            while (true) {
+                String drinkSize = scanner.nextLine().trim();
+                if(drinkSize.equalsIgnoreCase("small") || drinkSize.equalsIgnoreCase("medium") || drinkSize.trim().equalsIgnoreCase("large")) {
+                    tea.size = drinkSize;
+                    break;
+                }
+                else
+                    System.out.println("Invald input, please choose either Small, Medium, or Large.");
+            }
+
+            System.out.println("Would you like \"Green\" or \"Herbal\" tea?");
+
+            while(true) {
+                String teaType = scanner.nextLine().trim();
+                if(teaType.equalsIgnoreCase("Green")) {
+                    tea.setType("green");
+                    break;
+                }
+                else if(teaType.equalsIgnoreCase("herbal")) {
+                    tea.setType("herbal");
+                    break;
+                }
+                else
+                    System.out.println("Invalid input, please choose either \"Green\" or \"Herbal\".");
+            }
+
+            System.out.println("Would you like milk? (Y/N)");
+
+            while (true) {
+                String isMilk = scanner.nextLine().trim();
+                if(isMilk.equalsIgnoreCase("Y")) {
+                    tea.milk = true;
+                    break;
+                }
+                else if(isMilk.equalsIgnoreCase("N")) {
+                    tea.milk = false;
+                    break;
+                }
+                else
+                    System.out.println("Invalid input, please choose either \"Y\" or \"N\".");
+            }
+
+            System.out.println("Would you like sugar? (Y/N)");
+
+            while(true) {
+                String isSugar = scanner.nextLine().trim();
+                if(isSugar.equalsIgnoreCase("Y")) {
+                    tea.sugar = true;
+                    break;
+                }
+                else if(isSugar.equalsIgnoreCase("N")) {
+                    tea.sugar = false;
+                    break;
+                }
+                else
+                    System.out.println("Invalid input, please choose either \"Y\" or \"N\".");
+            }
+
+            Order order = new Order(tea);
+            order.printOrder();
         }
 
         scanner.close();
