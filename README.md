@@ -1,6 +1,6 @@
-The purpose of this repo is to showcase my OOP programming skills.
-
+The purpose of this repo is to showcase my knowledge of Object-Oriented Programming concepts.
 CoffeeShop.java is a program that mimicks taking orders at a Coffee Shop.
+
 You are able to order a Coffee or a Tea specifying:
 - Size of the drink
 - Whether milk or sugar is included
